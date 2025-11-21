@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Portal</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <style>
+    .first-line{
+        color:white !important;
+    }
+    </style>
+    
+</head>
+<body>
+    
+    <div class="nav">
+        <div class="icon">ACADEMY</div>
+        <div class="nav-links">
+            <a href="{% url 'courses' %}"><li>Courses</li></a>
+            <a href="{% url 'students' %}"><li>Students</li></a>
+            <a href="{% url 'trainers' %}"> <li>Trainers</li></a> 
+        </div>      
+        <button class="btn">Search...</button>   
+    </div>
+    <div class="home-part">
+        <div class="first-box">
+            <h3 class="first-line">Course Section</h3>
+            <h3><a href="{% url 'courses' %}">Running Courses: {{ running_courses }}</a></h3>
+        </div>
+        <div class="second-box">
+            <h3 class="first-line">Students Section</h3>
+            <h3><a href="{% url 'students' %}">Active Students: {{ active_students }}</a></h3>
+        </div>
+        <div class="third-box">
+            <h3 class="first-line">Trainers Section</h3>
+            <h3><a href="{% url 'trainers' %}">Honourable Trainers: {{ total_trainers }}</a></h3>
+        </div>
+    </div>
+    <div>
+        <div class="footer-part">
+            <h5>COPYWRIGHT @ MOZAMMAL HAIDAR</h5>
+        </div>
+    </div> 
+
+</body>
+    
+</html>

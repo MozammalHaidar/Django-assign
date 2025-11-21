@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Portal</title>
+    <link rel="stylesheet" href="{% static 'css/main.css'%}"> 
+</head>
+<body>
+    <h2>This is trainer page.</h2>  
+        <table>
+            <thead>
+                <th>Id</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Expertise</th>
+                <th>Photo</th>
+            </thead>
+            <tbody>
+                {% for e in trainers %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{e.first_name}} {{e.last_name}}</td>
+                        <td>{{e.email}}</td>
+                        <td>{{e.expertise}}</td>
+                        <td>
+                            {% if e.trainer_photo %}
+                                <img src="{{ e.trainer_photo.url }}" alt="Photo" width="80" height="80">
+                            {% else %}
+                                No Photo
+                            {% endif %}
+                        </td>
+                    </tr>
+    
+                {% endfor %}
+            </tbody>
+    
+        </table>
+        <button class="btn"><a href="{% url 'home' %}">Go to Home</a></button>
+</body>
+</html>

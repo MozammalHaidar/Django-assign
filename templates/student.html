@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Portal</title>
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+</head>
+<body>
+        <h2>This is student page.</h2>
+        <table>
+            <thead>
+                <th>Id</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Enrolled course</th>
+                <th>Active</th>
+                <th>Trainer</th>
+            </thead>
+            <tbody>
+                {% for e in students %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{e.first_name}} {{e.last_name}}</td>
+                        <td>{{e.email}}</td>
+                        <td>{{e.enrolled_course}}</td>
+                        <td>{{e.is_active}}</td>
+                        <td>{{e.trainer}}</td>
+                    </tr>
+    
+                {% endfor %}
+            </tbody>
+    
+        </table>
+        <button class="btn"><a href="{% url 'home' %}">Go to Home</a></button>
+</body>
+</html>
