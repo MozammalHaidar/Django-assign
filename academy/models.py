@@ -34,6 +34,7 @@ class Student(models.Model):
     last_name = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
     is_active = models.BooleanField(default=True)
+    image = models.ImageField(upload_to='images', default = 'default.jpg', blank=True, null=True)
     enrolled_course = models.ForeignKey(
         Course, on_delete=models.CASCADE, related_name='students'
     )

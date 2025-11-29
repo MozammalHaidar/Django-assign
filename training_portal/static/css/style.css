@@ -60,7 +60,7 @@ body {
 .nav-links{
     color:white;
     display: flex;
-    gap:65px;
+    gap:35px;
     justify-content: space-between;
     list-style: none;
     font-size: 18px;

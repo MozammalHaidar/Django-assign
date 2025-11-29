@@ -19,11 +19,18 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
+from accounts import views  as AccountViews
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name="home"),
     path('academy/', include('academy.urls')),
+    path('register/', AccountViews.register, name="register"),
+    path('login/', AccountViews.login, name="login"),
+    path('logout/', AccountViews.logout, name="logout"),
+   
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

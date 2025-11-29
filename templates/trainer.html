@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training Portal</title>
     <link rel="stylesheet" href="{% static 'css/main.css'%}"> 
+    <style>
+        table{
+            margin-top: 25px !important;
+        }
+    </style>
 </head>
 <body>
     <h2>This is trainer page.</h2>  
-        <table>
+    {% if perms.academy.add_student %}
+    <a href="{% url 'add_trainer' %}" style="float: top; margin-left: 1085px; border-radius: 5px; background: linear-gradient(to right, #3399d9 0%, #3399d9 100%); padding:10px 12px;">Add Trainer</a>
+    {% endif %} 
+    <table>
             <thead>
                 <th>Id</th>
                 <th>Full Name</th>
@@ -33,10 +40,8 @@
                             {% endif %}
                         </td>
                     </tr>
-    
                 {% endfor %}
-            </tbody>
-    
+            </tbody> 
         </table>
         <button class="btn"><a href="{% url 'home' %}">Go to Home</a></button>
 </body>
